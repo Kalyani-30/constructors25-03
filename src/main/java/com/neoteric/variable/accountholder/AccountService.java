@@ -53,23 +53,23 @@ public class AccountService {
         customerdata.put(customerId, customer);
         return customer;
    }
-   public  void balancedata(String accountId,Balance balance){
-        if(balanceData.containsKey(accountId)){
-            balanceData.put(accountId,balance);
-            System.out.println("balance updated"+balance);
-
-        }else {
-            System.out.println("balance not updated");
-        }
-
-   }
-
-   public void withdraw(String accountId , double amount){
-       if (balanceData.containsKey(accountId)) {
-           double currentBalance = balanceData.get(balanceData).getAmount();
-
+  public void withdraw(Account account, double amount){
+       if(account.balance.getAmount()>amount){
+           double minimumamount = account.balance.getAmount()-amount;
+           if (minimumamount>=5000){
+               System.out.println("amount withdraw successful and remaining amount is "+ minimumamount);
+               account.balance.setAmount(minimumamount);
+           }else {
+               System.out.println("shuold be greterthan 5000");
            }
-           if (currentBalance >=balance.getAmount()) {
-               balanceData.put(accountId, currentBalance - );
-   }
+
+
+       }else {
+           System.out.println("insufiend balance");
+       }
+
+
+  }
+
+
 }
